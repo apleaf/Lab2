@@ -1,0 +1,18 @@
+# ==== Slide Switches (SW) ====
+
+NET "A<0>" LOC = "L14"; # Type = INPUT, Sch name = SW0
+NET "A<1>" LOC = "L13"; # Type = INPUT, Sch name = SW1
+NET "A<2>" LOC = "N17"; # Type = INPUT, Sch name = SW2
+NET "A<3>" LOC = "R17"; # Type = INPUT, Sch name = SW3
+NET "B<0>" LOC = "G18"; # Type = INPUT, Sch name = SW4
+NET "B<1>" LOC = "H18"; # Type = INPUT, Sch name = SW5
+NET "B<2>" LOC = "K18"; # Type = INPUT, Sch name = SW6
+NET "B<3>" LOC = "K17"; # Type = INPUT, Sch name = SW7
+NET "addorsub" LOC = "H13";
+
+# LED outputs constraints
+NET "S<0>"  LOC = "J14"; # Sch name = LD0
+NET "S<1>"  LOC = "J15"; # Sch name = LD1
+NET "S<2>"  LOC = "K15"; # Sch name = LD2
+NET "S<3>"  LOC = "K14"; # Sch name = LD3
+NET "overflow" LOC = "R4";
