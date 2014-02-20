@@ -84,7 +84,7 @@ stim_proc: process
    
    begin
 	
-for i in 0 to 15 loop
+for i in 0 to 15 loop--for loop to go through all the added bits
 	for j in 0 to 15 loop
 	
 	wait for 10 ns;
@@ -98,14 +98,14 @@ for i in 0 to 15 loop
 	
 	& std_logic'image(A(3)) & std_logic'image(A(2)) & std_logic'image(A(1)) & std_logic'image(A(0)) & "B is " 
 	& std_logic'image(B(3)) & std_logic'image(B(2)) & std_logic'image(B(1)) & std_logic'image(B(0));
-	
+	--outputs "incorrect" and where the problem was 'which bit'
 	
 
 	end loop;
 
 wait for 10 ns ;
 
-addorsub <= '1';
+addorsub <= '1';--changed add or sub to '1' to now run through all the subtractions
 
 for i in 0 to 15 loop
 	for j in 0 to 15 loop
@@ -122,7 +122,7 @@ for i in 0 to 15 loop
 	
 	& std_logic'image(A(3)) & std_logic'image(A(2)) & std_logic'image(A(1)) & std_logic'image(A(0)) & "B is " 
 	& std_logic'image(B(3)) & std_logic'image(B(2)) & std_logic'image(B(1)) & std_logic'image(B(0));
-
+--outputs "incorrect" and where the problem was 'which bit'
 
 end process;
 

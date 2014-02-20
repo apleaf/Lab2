@@ -1,11 +1,11 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
+-- Company: USAFA
+-- Engineer: Alex Leaf
 -- 
 -- Create Date:    16:42:53 02/17/2014 
--- Design Name: 
+-- Design Name:  Four bit Adder from full adders!
 -- Module Name:    fourbitadder - Structural 
--- Project Name: 
+-- Project Name: Lab2
 -- Target Devices: 
 -- Tool versions: 
 -- Description: 
@@ -32,22 +32,22 @@ use IEEE.NUMERIC_STD.ALL;
 --use UNISIM.VComponents.all;
 
 entity fourbitadder is
-    Port ( A : in  STD_LOGIC_VECTOR (3 downto 0);
-           B : in  STD_LOGIC_VECTOR (3 downto 0);
-			  Cin : in STD_LOGIC;
-			  Cout : out STD_LOGIC;
-			  addorsub : in STD_LOGIC;
-			  overflow : out STD_LOGIC; 
-           S : out  STD_LOGIC_VECTOR (3 downto 0));
+    Port ( A : in  STD_LOGIC_VECTOR (3 downto 0);--added bit
+           B : in  STD_LOGIC_VECTOR (3 downto 0);--secodn added bit
+			  Cin : in STD_LOGIC;--carry in
+			  Cout : out STD_LOGIC;--carry out to carry in to the next adder
+			  addorsub : in STD_LOGIC;--determines whether adding or subtracting the bits
+			  overflow : out STD_LOGIC; --handles overflow of the foru bit adder
+           S : out  STD_LOGIC_VECTOR (3 downto 0));--sum of the added bits
 			  
 end fourbitadder;
 
 architecture Structural of fourbitadder is
 
-signal E, F, G, H: STD_LOGIC;
+signal E, F, G, H: STD_LOGIC;--internal signals to handle the carrys from one full adder to the next
 
 signal beforeconversion : STD_LOGIC_VECTOR (3 downto 0);
-signal twocompb : STD_LOGIC_VECTOR(3 downto 0);
+signal twocompb : STD_LOGIC_VECTOR(3 downto 0);--signal to represent the twos complement for subtraction
 
 
  
@@ -66,7 +66,7 @@ begin
 
 beforeconversion <= B;
 twocompb <= beforeconversion when addorsub = '0' else
-		STD_LOGIC_VECTOR (SIGNED(not beforeconversion)+1) when addorsub = '1';
+		STD_LOGIC_VECTOR (SIGNED(not beforeconversion)+1) when addorsub = '1';--creates twos complement of the bit when we are subtracting
 
 Bit0: component fulladder
 		port map (A => A(0),
@@ -96,7 +96,7 @@ Bit3: component fulladder
 					 Cout => H,
 					 S =>   S(3));
 					 
-overflow <= G xor H;
+overflow <= G xor H; --overflow!!
 
 
 end Structural;
