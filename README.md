@@ -7,7 +7,7 @@ ECE_281
 Alex Leaf
 
 Schematic:
-![alt text](http://i57.tinypic.com/2ij6zk4.png)
+![alt text](http://i59.tinypic.com/zxl4jc.jpg)
 
 
 4 Bit adder TestBench Output:
